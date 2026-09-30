@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshop RAG Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Local AI Workshop</p>
+          <h1>RAG Assistant</h1>
+        </div>
+        <button id="reindexBtn" class="secondary-btn">Re-index workshop docs</button>
+      </header>
+
+      <main class="layout">
+        <section class="panel left-panel">
+          <h2>Upload Knowledge</h2>
+          <label class="upload-box" for="fileInput">
+            <input id="fileInput" type="file" accept=".txt,.md,.pdf" />
+            <span>Select a file</span>
+          </label>
+          <button id="uploadBtn" class="primary-btn">Upload and index</button>
+          <div id="uploadStatus" class="status-box muted">No file uploaded yet.</div>
+        </section>
+
+        <section class="panel chat-panel">
+          <div class="chat-header">
+            <h2>Ask a question</h2>
+            <span id="docCounter" class="badge">0 chunks indexed</span>
+          </div>
+
+          <div id="chatOutput" class="chat-output">
+            <div class="message bot">
+              Ask me about the workshop materials, and I will retrieve the most relevant local passages before answering.
+            </div>
+          </div>
+
+          <form id="chatForm" class="chat-form">
+            <textarea id="questionInput" rows="3" placeholder="Example: What is the difference between vector search and keyword search?"></textarea>
+            <div class="form-actions">
+              <button type="submit" class="primary-btn">Ask</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
